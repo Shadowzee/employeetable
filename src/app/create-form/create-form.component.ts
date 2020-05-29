@@ -14,7 +14,7 @@ export class CreateFormComponent implements OnInit {
     employeeId: new FormControl('',Validators.required),
     department: new FormControl('',Validators.required),
     email: new FormControl('',Validators.required),
-    date: new FormControl('',Validators.required),
+    date: new FormControl(''),
   });
   constructor(private modalService: NgbModal,private empservice: FormserviceService) { }
 
@@ -26,17 +26,17 @@ export class CreateFormComponent implements OnInit {
     });
   }
   submit(){
-   // this.submitted=true;
-    // if (this.employeedetail.valid) {
-    //   this.submitted=false;
-    console.log(this.employeedetail.value);
+   this.submitted=true;
+    if (this.employeedetail.valid) {
+      this.submitted=false;
     this.empservice.createemp(this.employeedetail.value);
     this.employeedetail.reset();
     this.modalService.dismissAll();
    
-    //}
+    }
   }
   clear(){
     this.employeedetail.reset();
+    this.submitted=false;
   }
 }

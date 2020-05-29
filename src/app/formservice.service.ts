@@ -14,7 +14,6 @@ export class FormserviceService {
     const currentValue = this.employeedetails.value;
     const updatedValue = [...currentValue, empdetails];
     this.employeedetails.next(updatedValue);
-  console.log(this.employeedetails.value);
   }
   getempdata():Observable<any>{
     return this.employeedetails.asObservable();

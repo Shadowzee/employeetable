@@ -14,6 +14,11 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
     this.empservice.getempdata().subscribe(data=>{
       this.data=data;
+      this.data.forEach((dat,index)=>{
+        if(dat.date && typeof dat.date=='object'){
+          this.data[index]['date']=dat.date.day+'-'+dat.date.month+'-'+dat.date.year;
+        }
+      })
     });
 
   }

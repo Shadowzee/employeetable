@@ -1,11 +1,12 @@
 <ng-template #content let-modal>
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <h4 class="modal-title" id="modal-basic-title">Create Employee</h4>
+      <button type="button" class="close outline" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
+      <span class="red" *ngIf="submitted">Please fill all fileds</span>
       <form [formGroup]="employeedetail">
         <div class="form-group">
           <label for="name">Name</label>
@@ -18,7 +19,7 @@
             </div>
             <div class="form-group">
                 <label for="department">Department</label>
-         <select  formControlName="department">
+         <select class="form-control"   formControlName="department">
              <option value="IT">IT</option>
              <option  value="Development">Development</option>
              <option  value="Sales">Sales</option>
@@ -31,6 +32,7 @@
             <input  class="form-control"  formControlName="email" type="text" />
             </div>
             <div class="form-group">
+              <label for="email">Date of joining</label>
                 <div class="input-group">
                   <input class="form-control" placeholder="yyyy-mm-dd"
                          name="dp" formControlName="date" ngbDatepicker #d="ngbDatepicker">
@@ -48,5 +50,5 @@
     </div>
   </ng-template>
   
-  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Create</button>
+  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">New Employee</button>
   
