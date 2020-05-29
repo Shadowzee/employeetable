@@ -19,4 +19,10 @@ export class FormserviceService {
   getempdata():Observable<any>{
     return this.employeedetails.asObservable();
   }
+  delete(i){
+    const currentValue = this.employeedetails.value;
+    const updatedValue =currentValue.splice(i,1);
+    this.employeedetails.next(currentValue);
+    
+  }
 }

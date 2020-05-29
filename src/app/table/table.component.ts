@@ -16,5 +16,8 @@ export class TableComponent implements OnInit {
     });
 
   }
-
+delete(i){
+  this.empservice.delete(i);
+  
+}
 }
