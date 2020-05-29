@@ -16,4 +16,7 @@ export class FormserviceService {
     this.employeedetails.next(updatedValue);
   console.log(this.employeedetails.value);
   }
+  getempdata():Observable<any>{
+    return this.employeedetails.asObservable();
+  }
 }
